@@ -31,6 +31,8 @@ Selamat ulang tahun.
 
 openBtn.onclick = () => {
 
+    launchConfetti();
+    
     welcome.style.display = "none";
     main.style.display = "flex";
     main.classList.add("fade");
@@ -115,5 +117,44 @@ for(let i=0;i<20;i++){
     Math.random()*5+"s";
 
     document.body.appendChild(balloon);
+
+}
+
+// ===========================
+// CONFETTI
+// ===========================
+
+function launchConfetti(){
+
+    const colors=[
+        "#ff4d6d",
+        "#ffd93d",
+        "#6bcB77",
+        "#4d96ff",
+        "#ff66c4",
+        "#ffffff"
+    ];
+
+    for(let i=0;i<150;i++){
+
+        let c=document.createElement("div");
+
+        c.className="confetti";
+
+        c.style.left=Math.random()*100+"vw";
+
+        c.style.background=
+        colors[Math.floor(Math.random()*colors.length)];
+
+        c.style.animationDuration=
+        (2+Math.random()*3)+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },5000);
+
+    }
 
 }
