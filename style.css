@@ -189,3 +189,43 @@ transform:translateY(-120vh);
 }
 
 }
+
+/* ==========================
+        CONFETTI
+========================== */
+
+.confetti{
+
+position:fixed;
+
+top:-20px;
+
+width:8px;
+
+height:14px;
+
+z-index:999;
+
+animation:confettiFall linear forwards;
+
+}
+
+@keyframes confettiFall{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
