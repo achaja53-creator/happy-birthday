@@ -131,3 +131,61 @@ button:hover{
     }
 
 }
+
+/* =======================
+        BALON
+======================= */
+
+.balloon{
+
+position:fixed;
+
+bottom:-120px;
+
+width:60px;
+
+height:80px;
+
+border-radius:50%;
+
+opacity:.85;
+
+z-index:-1;
+
+animation:fly linear infinite;
+
+}
+
+.balloon::after{
+
+content:"";
+
+position:absolute;
+
+width:2px;
+
+height:50px;
+
+background:white;
+
+left:29px;
+
+top:80px;
+
+}
+
+@keyframes fly{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-120vh);
+
+}
+
+}
