@@ -39,47 +39,27 @@ openBtn.onclick = () => {
 
 };
 
-function typeTitle(){
-
-    let i = 0;
-
-    let typing = setInterval(()=>{
-
-        title.innerHTML += titleText.charAt(i);
-
-        i++;
-
-        if(i >= titleText.length){
-
-            clearInterval(typing);
-
-            letter.style.display = "block";
-
-            typeLetter();
-
-        }
-
-    },80);
-
-}
-
 function typeLetter(){
 
-    let i = 0;
+    const lines = message.split("\n");
 
-    let typing = setInterval(()=>{
+    let index = 0;
 
-        letterText.innerHTML += message.charAt(i);
+    function showLine(){
 
-        i++;
+        if(index < lines.length){
 
-        if(i >= message.length){
+            letterText.innerHTML += lines[index] + "<br><br>";
 
-            clearInterval(typing);
+            index++;
+
+            setTimeout(showLine,1200);
 
         }
 
-    },30);
+    }
+
+    showLine();
 
 }
 
