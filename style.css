@@ -55,7 +55,6 @@ button{
 button:hover{
     transform:scale(1.08);
     box-shadow:0 0 35px white;
-    }
 }
 
 #typingTitle{
