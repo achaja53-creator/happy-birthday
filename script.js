@@ -83,6 +83,9 @@ function typeLetter(){
 
             setTimeout(nextLine,800);
 
+        }else{
+
+            setTimeout(launchFireworks,1000);
         }
 
     }
@@ -106,7 +109,7 @@ for(let i=0;i<120;i++){
     star.style.left=Math.random()*100+"vw";
     star.style.top=Math.random()*100+"vh";
 
-    star.style.animationDuration=(1+Math.random()*3)+"s";
+    star.style.anima cotionDuration=(1+Math.random()*3)+"s";
 
     stars.appendChild(star);
 
