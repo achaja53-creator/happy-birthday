@@ -9,17 +9,25 @@ const titleText = "🎂 Happy Birthday Heni Alviani 🤍";
 
 const message = `Selamat ulang tahun, Heni.
 
+Hari ini usiamu bertambah satu, tetapi semoga bukan hanya angka yang bertambah.
+
 Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan keberanian untuk mengejar semua impianmu.
 
 Terima kasih sudah menjadi dirimu sendiri.
 
-Website kecil ini mungkin sederhana, tetapi dibuat dengan tulus khusus untukmu.
+Website kecil ini mungkin sederhana.
 
-Semoga hari ini menjadi awal dari banyak hal indah dalam hidupmu.
+Namun setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.
+
+Aku berharap hari ini menjadi salah satu hari terbaik dalam hidupmu.
+
+Semoga semua doa baikmu menemukan jalannya.
+
+Dan semoga kamu selalu memiliki alasan untuk tersenyum.
 
 Selamat ulang tahun.
 
-— Arrow 🤍`;
+— Tuan Muda Arrow 🤍`;
 
 openBtn.onclick = () => {
 
