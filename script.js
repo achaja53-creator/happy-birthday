@@ -84,3 +84,36 @@ for(let i=0;i<120;i++){
     stars.appendChild(star);
 
 }
+
+// =======================
+// BALON
+// =======================
+
+const colors = [
+"#ff4d6d",
+"#ffd93d",
+"#6bcB77",
+"#4d96ff",
+"#ff66c4"
+];
+
+for(let i=0;i<20;i++){
+
+    let balloon=document.createElement("div");
+
+    balloon.className="balloon";
+
+    balloon.style.left=Math.random()*100+"vw";
+
+    balloon.style.background=
+    colors[Math.floor(Math.random()*colors.length)];
+
+    balloon.style.animationDuration=
+    (8+Math.random()*6)+"s";
+
+    balloon.style.animationDelay=
+    Math.random()*5+"s";
+
+    document.body.appendChild(balloon);
+
+}
