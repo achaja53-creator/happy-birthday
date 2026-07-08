@@ -176,3 +176,46 @@ function launchConfetti(){
     }
 
 }
+
+/* ==========================
+        FIREWORK
+========================== */
+
+function launchFireworks(){
+
+    const colors=[
+    "#ff4d6d",
+    "#ffd93d",
+    "#6bcB77",
+    "#4d96ff",
+    "#ff66c4",
+    "#ffffff"
+    ];
+
+    for(let i=0;i<18;i++){
+
+        setTimeout(()=>{
+
+            let fire=document.createElement("div");
+
+            fire.className="firework";
+
+            fire.style.left=Math.random()*100+"vw";
+            fire.style.top=Math.random()*60+"vh";
+
+            fire.style.background=
+            colors[Math.floor(Math.random()*colors.length)];
+
+            document.body.appendChild(fire);
+
+            setTimeout(()=>{
+
+                fire.remove();
+
+            },1400);
+
+        },i*250);
+
+    }
+
+}
