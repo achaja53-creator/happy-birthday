@@ -34,6 +34,9 @@ body{
 
     display:none;
 
+    background:rgba(5,5,5,.96); 
+                    
+    animation:fade 1s;
 }
 
 h1{
