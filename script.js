@@ -1,9 +1,16 @@
 const openBtn = document.getElementById("openBtn");
 const welcome = document.getElementById("welcome");
 const main = document.getElementById("main");
+
 const title = document.getElementById("typingTitle");
 const letter = document.getElementById("letter");
 const letterText = document.getElementById("letterText");
+
+const lastBtn = document.getElementById("lastBtn");
+
+const ending = document.getElementById("ending");
+const endingTitle = document.getElementById("endingTitle");
+const endingText = document.getElementById("endingText");
 
 const titleText = "🎂 Happy Birthday Heni Alviani 🤍";
 
@@ -15,13 +22,13 @@ Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan keberanian.
 
 Terima kasih sudah menjadi dirimu sendiri.
 
-Website kecil ini mungkin sederhana.
+Mungkin hadiah ini sederhana.
 
-Namun setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.
+Tetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.
 
-Semoga semua doa baikmu terkabul.
+Semoga semua doa baikmu menemukan jalannya.
 
-Dan semoga kamu selalu memiliki alasan untuk tersenyum.
+Tetaplah menjadi pribadi yang baik, kuat, dan selalu tersenyum.
 
 Selamat ulang tahun.
 
@@ -29,11 +36,15 @@ Selamat ulang tahun.
 
 openBtn.onclick = function(){
 
-    launchConfetti();
-
     welcome.style.display = "none";
+
     main.style.display = "flex";
+
     main.classList.add("fade");
+
+    createStars();
+
+    createBalloons();
 
     typeTitle();
 
@@ -45,7 +56,7 @@ function typeTitle(){
 
     title.innerHTML = "";
 
-    let typing = setInterval(function(){
+    const typing = setInterval(function(){
 
         title.innerHTML += titleText.charAt(i);
 
@@ -64,207 +75,3 @@ function typeTitle(){
     },80);
 
 }
-
-function typeLetter(){
-
-    letterText.innerHTML = "";
-
-    const lines = message.split("\n");
-
-    let index = 0;
-
-    function nextLine(){
-
-        if(index < lines.length){
-
-            letterText.innerHTML += lines[index] + "<br><br>";
-
-            index++;
-
-            setTimeout(nextLine,800);
-
-        }else{
-
-            document.getElementById("lastBtn").style.display = "block";
-        }
-
-    }
-
-    nextLine();
-
-}
-
-/* =========================
-   BINTANG
-========================= */
-
-const stars = document.getElementById("stars");
-
-for(let i=0;i<120;i++){
-
-    let star=document.createElement("div");
-
-    star.className="star";
-
-    star.style.left=Math.random()*100+"vw";
-    star.style.top=Math.random()*100+"vh";
-
-    star.style.animationDuration=(1+Math.random()*3)+"s";
-
-    stars.appendChild(star);
-
-}
-
-/* =========================
-   BALON
-========================= */
-
-const colors=[
-"#ff4d6d",
-"#ffd93d",
-"#6bcB77",
-"#4d96ff",
-"#ff66c4"
-];
-
-for(let i=0;i<20;i++){
-
-    let balloon=document.createElement("div");
-
-    balloon.className="balloon";
-
-    balloon.style.left=Math.random()*100+"vw";
-
-    balloon.style.background=
-    colors[Math.floor(Math.random()*colors.length)];
-
-    balloon.style.animationDuration=
-    (8+Math.random()*6)+"s";
-
-    balloon.style.animationDelay=
-    Math.random()*5+"s";
-
-    document.body.appendChild(balloon);
-
-}
-
-/* =========================
-   CONFETTI
-========================= */
-
-function launchConfetti(){
-
-    for(let i=0;i<120;i++){
-
-        let c=document.createElement("div");
-
-        c.className="confetti";
-
-        c.style.left=Math.random()*100+"vw";
-
-        c.style.background=
-        colors[Math.floor(Math.random()*colors.length)];
-
-        c.style.animationDuration=
-        (2+Math.random()*3)+"s";
-
-        document.body.appendChild(c);
-
-        setTimeout(function(){
-
-            c.remove();
-
-        },5000);
-
-    }
-
-}
-
-/* ==========================
-        FIREWORK
-========================== */
-
-function launchFireworks(){
-
-    const colors=[
-    "#ff4d6d",
-    "#ffd93d",
-    "#6bcB77",
-    "#4d96ff",
-    "#ff66c4",
-    "#ffffff"
-    ];
-
-    for(let i=0;i<18;i++){
-
-        setTimeout(()=>{
-
-            let fire=document.createElement("div");
-
-            fire.className="firework";
-
-            fire.style.left=Math.random()*100+"vw";
-            fire.style.top=Math.random()*60+"vh";
-
-            fire.style.background=
-            colors[Math.floor(Math.random()*colors.length)];
-
-            document.body.appendChild(fire);
-
-            setTimeout(()=>{
-
-                fire.remove();
-
-            },1400);
-
-        },i*250);
-
-    }
-
-}
-
-const lastBtn = document.getElementById("lastBtn");
-const ending = document.getElementById("ending");
-const endingTitle = document.getElementById("endingTitle");
-const endingText = document.getElementById("endingText");
-
-lastBtn.onclick = function(){
-
-    ending.style.display = "flex";
-    lastBtn.style.display = "none";
-    letter.style.display = "none";
-    title.style.display = "none";
-
-    const messages = [
-        "Terima kasih...",
-        "Karena kamu telah hadir di dunia ini.",
-        "Semoga semua impianmu menemukan jalannya.",
-        "🎂 Happy Birthday Heni Alviani 🤍"
-    ];
-
-    let i = 0;
-
-    function showMessage(){
-
-        if(i === 0){
-            endingTitle.innerHTML = messages[i];
-            endingText.innerHTML = "";
-        }else if(i < messages.length - 1){
-            endingTitle.innerHTML = "";
-            endingText.innerHTML = messages[i];
-        }else{
-            endingTitle.innerHTML = messages[i];
-            endingText.innerHTML =
-            "Mungkin hadiah ini sederhana.<br><br>" +
-            "Tetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.<br><br>" +
-            "<b>— Tuan Muda Arrow 🤍</b>";
-            return;
-        }
-
-        i++;
-        setTimeout(showMessage, 3000);
-    }
-
-    showMessage();
-
-};
