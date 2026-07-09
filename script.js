@@ -69,3 +69,106 @@ startBtn.onclick = function(){
     }
 
 };
+
+// =========================
+// INTRO
+// =========================
+
+function typeIntro(){
+
+    const title = "Untuk Heni Alviani 🤍";
+
+    const text =
+    "Ada sebuah hadiah kecil yang ingin kusampaikan kepadamu.";
+
+    introTitle.innerHTML = "";
+    introText.innerHTML = "";
+
+    let i = 0;
+
+    const titleTyping = setInterval(function(){
+
+        introTitle.innerHTML += title.charAt(i);
+
+        i++;
+
+        if(i >= title.length){
+
+            clearInterval(titleTyping);
+
+            setTimeout(typeIntroText,600);
+
+        }
+
+    },80);
+
+    function typeIntroText(){
+
+        let j = 0;
+
+        const textTyping = setInterval(function(){
+
+            introText.innerHTML += text.charAt(j);
+
+            j++;
+
+            if(j >= text.length){
+
+                clearInterval(textTyping);
+
+                setTimeout(showLetterPage,2000);
+
+            }
+
+        },40);
+
+    }
+
+}
+
+// =========================
+// PINDAH KE SURAT
+// =========================
+
+function showLetterPage(){
+
+    intro.classList.remove("active");
+
+    letterPage.classList.add("active");
+
+    typeLetter();
+
+}
+
+// =========================
+// EFEK MENGETIK SURAT
+// =========================
+
+function typeLetter(){
+
+    letterText.innerHTML = "";
+
+    let index = 0;
+
+    function nextLine(){
+
+        if(index >= letterLines.length){
+
+            setTimeout(showEnding,2500);
+
+            return;
+
+        }
+
+        letterText.innerHTML +=
+        letterLines[index] + "<br><br>";
+
+        index++;
+
+        setTimeout(nextLine,1200);
+
+    }
+
+    nextLine();
+
+}
