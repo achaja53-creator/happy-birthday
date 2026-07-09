@@ -75,3 +75,88 @@ function typeTitle(){
     },80);
 
 }
+
+function typeLetter(){
+
+    letterText.innerHTML = "";
+
+    const lines = message.split("\n");
+
+    let index = 0;
+
+    function nextLine(){
+
+        if(index < lines.length){
+
+            letterText.innerHTML += lines[index] + "<br><br>";
+
+            index++;
+
+            setTimeout(nextLine,900);
+
+        }else{
+
+            lastBtn.style.display = "block";
+
+        }
+
+    }
+
+    nextLine();
+
+}
+
+function createStars(){
+
+    const stars = document.getElementById("stars");
+
+    for(let i=0;i<120;i++){
+
+        const star = document.createElement("div");
+
+        star.className = "star";
+
+        star.style.left = Math.random()*100 + "vw";
+
+        star.style.top = Math.random()*100 + "vh";
+
+        star.style.animationDuration = (1+Math.random()*3) + "s";
+
+        stars.appendChild(star);
+
+    }
+
+}
+
+function createBalloons(){
+
+    const colors = [
+        "#ff4d6d",
+        "#ffd93d",
+        "#6bcB77",
+        "#4d96ff",
+        "#ff66c4"
+    ];
+
+    for(let i=0;i<20;i++){
+
+        const balloon = document.createElement("div");
+
+        balloon.className = "balloon";
+
+        balloon.style.left = Math.random()*100 + "vw";
+
+        balloon.style.background =
+            colors[Math.floor(Math.random()*colors.length)];
+
+        balloon.style.animationDuration =
+            (8+Math.random()*6) + "s";
+
+        balloon.style.animationDelay =
+            Math.random()*5 + "s";
+
+        document.body.appendChild(balloon);
+
+    }
+
+}
