@@ -172,3 +172,135 @@ function typeLetter(){
     nextLine();
 
 }
+
+ // =========================
+// ENDING
+// =========================
+
+function showEnding(){
+
+    letterPage.classList.remove("active");
+    ending.classList.add("active");
+
+    const scenes = [
+
+        {
+            title:"Terima kasih...",
+            text:"Karena kamu telah hadir di dunia ini."
+        },
+
+        {
+            title:"",
+            text:"Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan orang-orang yang selalu menyayangimu."
+        },
+
+        {
+            title:"🎂 Happy Birthday",
+            text:"Heni Alviani 🤍"
+        },
+
+        {
+            title:"",
+            text:"Mungkin hadiah ini sederhana.\n\nTetapi dibuat dengan waktu, usaha, dan ketulusan.\n\nSemoga kamu selalu memiliki alasan untuk tersenyum.\n\n— Tuan Muda Arrow 🤍"
+        }
+
+    ];
+
+    let i = 0;
+
+    function nextScene(){
+
+        if(i >= scenes.length){
+
+            restartBtn.style.display = "inline-block";
+            return;
+
+        }
+
+        endingTitle.innerHTML = scenes[i].title;
+        endingText.innerHTML = scenes[i].text.replace(/\n/g,"<br>");
+
+        i++;
+
+        setTimeout(nextScene,3500);
+
+    }
+
+    nextScene();
+
+}
+
+// =========================
+// BINTANG
+// =========================
+
+function createStars(){
+
+    const stars = document.getElementById("stars");
+
+    stars.innerHTML = "";
+
+    for(let i=0;i<120;i++){
+
+        const star = document.createElement("div");
+
+        star.className = "star";
+
+        star.style.left = Math.random()*100 + "vw";
+        star.style.top = Math.random()*100 + "vh";
+
+        star.style.animationDuration =
+        (1 + Math.random()*3) + "s";
+
+        stars.appendChild(star);
+
+    }
+
+}
+
+// =========================
+// BALON
+// =========================
+
+function createBalloons(){
+
+    const colors = [
+        "#ff4d6d",
+        "#ffd93d",
+        "#6bcB77",
+        "#4d96ff",
+        "#ff66c4"
+    ];
+
+    for(let i=0;i<18;i++){
+
+        const balloon = document.createElement("div");
+
+        balloon.className = "balloon";
+
+        balloon.style.left = Math.random()*100 + "vw";
+
+        balloon.style.background =
+        colors[Math.floor(Math.random()*colors.length)];
+
+        balloon.style.animationDuration =
+        (8 + Math.random()*6) + "s";
+
+        balloon.style.animationDelay =
+        Math.random()*5 + "s";
+
+        document.body.appendChild(balloon);
+
+    }
+
+}
+
+// =========================
+// PUTAR LAGI
+// =========================
+
+restartBtn.onclick = function(){
+
+    location.reload();
+
+};
