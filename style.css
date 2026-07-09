@@ -1,18 +1,35 @@
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:linear-gradient(180deg,#030712,#0f172a,#111827);
+
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:linear-gradient(180deg,#020617,#08111f,#111827);
+
     color:white;
+
     overflow:hidden;
+
 }
 
-/* Semua halaman */
-section{
+/* =========================
+   HALAMAN
+========================= */
+
+.page{
+
     width:100%;
     height:100vh;
 
@@ -20,149 +37,149 @@ section{
 
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
 
     text-align:center;
 
     padding:30px;
+
 }
 
-#opening{
+.page.active{
+
     display:flex;
+
+    animation:fade 1s;
+
 }
+
+/* =========================
+   JUDUL
+========================= */
 
 h1{
-    font-size:2.3rem;
+
+    font-size:2.5rem;
+
     margin-bottom:20px;
+
 }
 
 h2{
+
     color:#ffd54f;
+
     margin-bottom:20px;
+
 }
 
 p{
+
     max-width:700px;
+
     line-height:1.9;
+
     font-size:18px;
+
 }
 
+/* =========================
+   BUTTON
+========================= */
+
 button{
+
     margin-top:35px;
 
-    padding:15px 40px;
+    padding:16px 40px;
 
     border:none;
-    border-radius:50px;
+
+    border-radius:999px;
 
     background:white;
+
     color:#111;
 
     font-size:18px;
+
     font-weight:bold;
 
     cursor:pointer;
 
     transition:.3s;
+
 }
 
 button:hover{
+
     transform:scale(1.08);
+
 }
 
-/* Kotak surat */
+/* =========================
+   SURAT
+========================= */
 
 #letterBox{
 
+    width:90%;
+
     max-width:700px;
+
+    padding:35px;
+
+    border-radius:24px;
 
     background:rgba(255,255,255,.08);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     border:1px solid rgba(255,255,255,.15);
-
-    border-radius:20px;
-
-    padding:35px;
 
     box-shadow:0 0 35px rgba(255,255,255,.08);
 
 }
 
-/* Langit */
+#letterText{
+
+    white-space:pre-line;
+
+}
+
+/* =========================
+   BINTANG
+========================= */
 
 #stars{
 
-position:fixed;
+    position:fixed;
 
-left:0;
-top:0;
+    left:0;
+    top:0;
 
-width:100%;
-height:100%;
+    width:100%;
+    height:100%;
 
-z-index:-1;
+    z-index:-2;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
 
 .star{
 
-position:absolute;
+    position:absolute;
 
-width:3px;
-height:3px;
+    width:3px;
 
-background:white;
+    height:3px;
 
-border-radius:50%;
+    background:white;
 
-animation:twinkle 2s infinite alternate;
+    border-radius:50%;
 
-}
-
-@keyframes twinkle{
-
-from{
-opacity:.3;
-transform:scale(.8);
-}
-
-to{
-opacity:1;
-transform:scale(1.6);
-}
-
-}
-
-/* Fade */
-
-.fade{
-
-animation:fade .9s;
-
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(25px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* Ending */
-
-#ending{
-
-background:#030712;
+    animation:twinkle 2s infinite alternate;
 
 }
