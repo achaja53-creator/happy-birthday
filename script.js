@@ -1,218 +1,53 @@
-const openBtn = document.getElementById("openBtn");
-const welcome = document.getElementById("welcome");
-const main = document.getElementById("main");
+const opening = document.getElementById("opening");
+const scene1 = document.getElementById("scene1");
+const letterScene = document.getElementById("letterScene");
+const ending = document.getElementById("ending");
 
-const title = document.getElementById("typingTitle");
-const letter = document.getElementById("letter");
+const startBtn = document.getElementById("startBtn");
+const restartBtn = document.getElementById("restartBtn");
+
+const sceneTitle = document.getElementById("sceneTitle");
+const sceneText = document.getElementById("sceneText");
+
 const letterText = document.getElementById("letterText");
 
-const lastBtn = document.getElementById("lastBtn");
-
-const ending = document.getElementById("ending");
 const endingTitle = document.getElementById("endingTitle");
 const endingText = document.getElementById("endingText");
 
-const titleText = "🎂 Happy Birthday Heni Alviani 🤍";
+const message = [
 
-const message = `Selamat ulang tahun, Heni.
+"Selamat ulang tahun, Heni.",
 
-Hari ini usiamu bertambah satu.
+"Hari ini usiamu bertambah satu.",
 
-Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan keberanian.
+"Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan keberanian.",
 
-Terima kasih sudah menjadi dirimu sendiri.
+"Terima kasih sudah menjadi dirimu sendiri.",
 
-Mungkin hadiah ini sederhana.
+"Mungkin hadiah ini sederhana.",
 
-Tetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.
+"Tetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.",
 
-Semoga semua doa baikmu menemukan jalannya.
+"Semoga semua doa baikmu menemukan jalannya.",
 
-Tetaplah menjadi pribadi yang baik, kuat, dan selalu tersenyum.
+"Selamat ulang tahun. 🤍",
 
-Selamat ulang tahun.
+"— Tuan Muda Arrow"
 
-— Tuan Muda Arrow 🤍`;
+];
 
-openBtn.onclick = function(){
+startBtn.onclick = function(){
 
-    welcome.style.display = "none";
+    document.title = "🎂 Happy Birthday Heni 🤍";
 
-    main.style.display = "flex";
+    opening.style.display = "none";
 
-    main.classList.add("fade");
+    scene1.style.display = "flex";
+
+    scene1.classList.add("fade");
 
     createStars();
 
-    createBalloons();
-
-    typeTitle();
-
-};
-
-function typeTitle(){
-
-    let i = 0;
-
-    title.innerHTML = "";
-
-    const typing = setInterval(function(){
-
-        title.innerHTML += titleText.charAt(i);
-
-        i++;
-
-        if(i >= titleText.length){
-
-            clearInterval(typing);
-
-            letter.style.display = "block";
-
-            typeLetter();
-
-        }
-
-    },80);
-
-}
-
-function typeLetter(){
-
-    letterText.innerHTML = "";
-
-    const lines = message.split("\n");
-
-    let index = 0;
-
-    function nextLine(){
-
-        if(index < lines.length){
-
-            letterText.innerHTML += lines[index] + "<br><br>";
-
-            index++;
-
-            setTimeout(nextLine,900);
-
-        }else{
-
-            lastBtn.style.display = "block";
-
-        }
-
-    }
-
-    nextLine();
-
-}
-
-function createStars(){
-
-    const stars = document.getElementById("stars");
-
-    for(let i=0;i<120;i++){
-
-        const star = document.createElement("div");
-
-        star.className = "star";
-
-        star.style.left = Math.random()*100 + "vw";
-
-        star.style.top = Math.random()*100 + "vh";
-
-        star.style.animationDuration = (1+Math.random()*3) + "s";
-
-        stars.appendChild(star);
-
-    }
-
-}
-
-function createBalloons(){
-
-    const colors = [
-        "#ff4d6d",
-        "#ffd93d",
-        "#6bcB77",
-        "#4d96ff",
-        "#ff66c4"
-    ];
-
-    for(let i=0;i<20;i++){
-
-        const balloon = document.createElement("div");
-
-        balloon.className = "balloon";
-
-        balloon.style.left = Math.random()*100 + "vw";
-
-        balloon.style.background =
-            colors[Math.floor(Math.random()*colors.length)];
-
-        balloon.style.animationDuration =
-            (8+Math.random()*6) + "s";
-
-        balloon.style.animationDelay =
-            Math.random()*5 + "s";
-
-        document.body.appendChild(balloon);
-
-    }
-
-}
-
-lastBtn.onclick = function(){
-
-    main.style.display = "none";
-    ending.style.display = "flex";
-    ending.classList.add("fade");
-
-    const scenes = [
-
-        {
-            title:"Terima kasih...",
-            text:""
-        },
-
-        {
-            title:"",
-            text:"Karena kamu telah hadir di dunia ini."
-        },
-
-        {
-            title:"",
-            text:"Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan orang-orang yang menyayangimu."
-        },
-
-        {
-            title:"🎂 Happy Birthday",
-            text:"Heni Alviani 🤍"
-        },
-
-        {
-            title:"",
-            text:"Mungkin hadiah ini sederhana.\n\nTetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.\n\nSemoga kamu selalu memiliki alasan untuk tersenyum.\n\n— Tuan Muda Arrow 🤍"
-        }
-
-    ];
-
-    let index = 0;
-
-    function showScene(){
-
-        if(index >= scenes.length){
-            return;
-        }
-
-        endingTitle.innerHTML = scenes[index].title;
-        endingText.innerHTML = scenes[index].text.replace(/\n/g,"<br>");
-
-        index++;
-
-        setTimeout(showScene,3500);
-
-    }
-
-    showScene();
+    intro();
 
 };
