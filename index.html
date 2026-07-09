@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 Seseorang Menitipkan Sesuatu...</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>🎁 Seseorang menitipkan sesuatu...</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div id="stars"></div>
+    <!-- Langit -->
+    <div id="stars"></div>
 
-<section id="opening">
+    <!-- Opening -->
+    <section id="opening" class="page active">
 
-<h1 id="openingText">
-Ada seseorang yang ingin menyampaikan sesuatu...
-</h1>
+        <h1 id="openingTitle">
+            Ada seseorang yang ingin menyampaikan sesuatu...
+        </h1>
 
-<p>
-Sebuah hadiah kecil yang dibuat khusus untukmu.
-</p>
+        <p>
+            Sebuah hadiah kecil yang dibuat
+            dengan waktu, usaha, dan ketulusan.
+        </p>
 
-<button id="startBtn">
-🎉 Mulai
-</button>
+        <button id="startBtn">
+             Mulai
+        </button>
 
-</section>
+    </section>
 
-<section id="scene1">
+    <!-- Intro -->
+    <section id="intro" class="page">
 
-<h1 id="sceneTitle"></h1>
+        <h1 id="introTitle"></h1>
 
-<p id="sceneText"></p>
+        <p id="introText"></p>
 
-</section>
+    </section>
 
-<section id="letterScene">
+    <!-- Surat -->
+    <section id="letterPage" class="page">
 
-<div id="letterBox">
+        <div id="letterBox">
 
-<h2>💌 Untuk Heni</h2>
+            <h2>💌 Untuk Heni</h2>
 
-<p id="letterText"></p>
+            <p id="letterText"></p>
 
-</div>
+        </div>
 
-</section>
+    </section>
 
-<section id="ending">
+    <!-- Ending -->
+    <section id="ending" class="page">
 
-<h1 id="endingTitle"></h1>
+        <h1 id="endingTitle"></h1>
 
-<p id="endingText"></p>
+        <p id="endingText"></p>
 
-<button id="restartBtn">
-🤍 Putar Lagi
-</button>
+        <button id="restartBtn">
+            🤍 Putar Lagi
+        </button>
 
-</section>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Musik (opsional) -->
+    <audio id="music" loop>
+        <source src="monokrom.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
 
 </body>
-
 </html>
