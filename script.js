@@ -160,3 +160,59 @@ function createBalloons(){
     }
 
 }
+
+lastBtn.onclick = function(){
+
+    main.style.display = "none";
+    ending.style.display = "flex";
+    ending.classList.add("fade");
+
+    const scenes = [
+
+        {
+            title:"Terima kasih...",
+            text:""
+        },
+
+        {
+            title:"",
+            text:"Karena kamu telah hadir di dunia ini."
+        },
+
+        {
+            title:"",
+            text:"Semoga setiap langkahmu dipenuhi kebahagiaan, kesehatan, dan orang-orang yang menyayangimu."
+        },
+
+        {
+            title:"🎂 Happy Birthday",
+            text:"Heni Alviani 🤍"
+        },
+
+        {
+            title:"",
+            text:"Mungkin hadiah ini sederhana.\n\nTetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.\n\nSemoga kamu selalu memiliki alasan untuk tersenyum.\n\n— Tuan Muda Arrow 🤍"
+        }
+
+    ];
+
+    let index = 0;
+
+    function showScene(){
+
+        if(index >= scenes.length){
+            return;
+        }
+
+        endingTitle.innerHTML = scenes[index].title;
+        endingText.innerHTML = scenes[index].text.replace(/\n/g,"<br>");
+
+        index++;
+
+        setTimeout(showScene,3500);
+
+    }
+
+    showScene();
+
+};
