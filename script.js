@@ -85,7 +85,7 @@ function typeLetter(){
 
         }else{
 
-            setTimeout(launchFireworks,1000);
+            document.getElementById("lastBtn").style.display = "block";
         }
 
     }
@@ -222,3 +222,49 @@ function launchFireworks(){
     }
 
 }
+
+const lastBtn = document.getElementById("lastBtn");
+const ending = document.getElementById("ending");
+const endingTitle = document.getElementById("endingTitle");
+const endingText = document.getElementById("endingText");
+
+lastBtn.onclick = function(){
+
+    ending.style.display = "flex";
+    lastBtn.style.display = "none";
+    letter.style.display = "none";
+    title.style.display = "none";
+
+    const messages = [
+        "Terima kasih...",
+        "Karena kamu telah hadir di dunia ini.",
+        "Semoga semua impianmu menemukan jalannya.",
+        "🎂 Happy Birthday Heni Alviani 🤍"
+    ];
+
+    let i = 0;
+
+    function showMessage(){
+
+        if(i === 0){
+            endingTitle.innerHTML = messages[i];
+            endingText.innerHTML = "";
+        }else if(i < messages.length - 1){
+            endingTitle.innerHTML = "";
+            endingText.innerHTML = messages[i];
+        }else{
+            endingTitle.innerHTML = messages[i];
+            endingText.innerHTML =
+            "Mungkin hadiah ini sederhana.<br><br>" +
+            "Tetapi setiap barisnya dibuat dengan waktu, usaha, dan ketulusan.<br><br>" +
+            "<b>— Tuan Muda Arrow 🤍</b>";
+            return;
+        }
+
+        i++;
+        setTimeout(showMessage, 3000);
+    }
+
+    showMessage();
+
+};
