@@ -52,6 +52,9 @@ const letterLines = [
 
 startBtn.onclick = function(){
 
+    music.volume = 0.35;
+    music.play().catch(() => {});
+    
     document.title = "🎂 Happy Birthday Heni 🤍";
 
     opening.classList.remove("active");
